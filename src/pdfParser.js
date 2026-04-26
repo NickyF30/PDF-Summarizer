@@ -8,8 +8,8 @@ const pdfParse = require('pdf-parse');
 const fs = require('fs/promises');
 const crypto = require('crypto');
 
-const CHUNK_SIZE = 500;   
-const CHUNK_OVERLAP = 50;   
+const CHUNK_SIZE = 500;
+const CHUNK_OVERLAP = 50;
 
 /**
  * Returns the SHA-256 hex digest of a file — used as a cache key so we never
@@ -19,9 +19,8 @@ async function hashFile(filePath) {
     const buffer = await fs.readFile(filePath);
     return crypto.createHash('sha256').update(buffer).digest('hex');
 }
- 
+
 function splitIntoChunks(text, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERLAP) {
-    // Normalise whitespace; split into words
     const words = text.replace(/\s+/g, ' ').trim().split(' ');
     const chunks = [];
     const step = chunkSize - overlap;
