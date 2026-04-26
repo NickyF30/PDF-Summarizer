@@ -5,7 +5,7 @@ const { embedText, embedBatch } = require('./embedder');
 const { isAlreadyIndexed, storeChunks, similaritySearch } = require('./vectorStore');
 const { GoogleGenAI } = require('@google/genai');
 
-const GENERATION_MODEL = 'gemini-2.0-flash';
+const GENERATION_MODEL = 'gemini-3-flash-preview';
 const TOP_K_CHUNKS = 6;   
 
 /**
